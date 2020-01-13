@@ -114,15 +114,15 @@ function endGame() {
 
 function moveDodger(e) {
   // implement me!
-  const key = e.which;
+  const code = e.which;
   if([LEFT_ARROW, RIGHT_ARROW].indexOf(key) > -1) {
     e.preventDefault();
     e.stopPropagation();
   }
   
-  if (key === LEFT_ARROW) { 
+  if (code === LEFT_ARROW) { 
     moveDodgerLeft();
-  } else if (key ===RIGHT_ARROW) {
+  } else if (code ===RIGHT_ARROW) {
     moveDodgerRight();
   }
 }
@@ -154,15 +154,15 @@ function moveDodgerRight() {
  * @returns {number} The position as an integer (without 'px')
  */
 function positionToInteger(p) {
-  return parseInt(p.split('px')[0]) || 0
+  return parseInt(p.split('px')[0]) || 0;
 }
 
 function start() {
-  window.addEventListener('keydown', moveDodger)
+  window.addEventListener('keydown', moveDodger);
 
-  START.style.display = 'none'
+  START.style.display = 'none';
 
   gameInterval = setInterval(function() {
-    createRock(Math.floor(Math.random() *  (GAME_WIDTH - 20)))
-  }, 1000)
+    createRock(Math.floor(Math.random() *  (GAME_WIDTH - 20)));
+  }, 1000);
 }
